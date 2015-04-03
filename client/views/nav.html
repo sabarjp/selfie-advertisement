@@ -1,25 +1,27 @@
 <template name="nav">
-  <div class="ui top inverted fixed menu">
-    <a class="active item" id="menu">
-        <i class="bars icon"></i> Menu
-    </a>
-    <div class="right menu">
-        {{#if currentUser}}
-            {{> logout}}
-        {{else}}
-            <a class="item" href="{{pathFor route='login'}}">
-                Login
-            </a>
-            <a class="item" href="{{pathFor route='signup'}}">
-                Sign up
-            </a>
-        {{/if}}
+  <div class="ui inverted fixed main menu">
+    <div class="container">
+        <a class="active item" id="menu">
+            <i class="bars icon"></i> Menu
+        </a>
+        <div class="right menu">
+            {{#if currentUser}}
+                {{> logout}}
+            {{else}}
+                <a class="item" href="{{pathFor route='login'}}">
+                    Login
+                </a>
+                <a class="item" href="{{pathFor route='signup'}}">
+                    Sign up
+                </a>
+            {{/if}}
+        </div>
     </div>
   </div>
 </template>
 
 <template name="sidebar">
-    <div class="ui left vertical inverted labeled icon sidebar menu" id="sidebar">
+    <div class="ui left vertical inverted labeled icon sidebar menu uncover" id="sidebar">
         <a class="item" href="{{pathFor route='default'}}">
             <i class="home icon"></i> Home
         </a>

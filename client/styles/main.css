@@ -1,10 +1,12 @@
 /* CSS declarations go here */
 
-.pusher{
-    padding-top: 40px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+.header{
+    padding-top: 60px;
+}
+
+.main.container{
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 #selfie-preview{
