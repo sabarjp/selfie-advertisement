@@ -1,0 +1,20 @@
+<template name="selfiesMain">
+    <h1>Selfies</h1>
+    <p>Here you can set up your selfies to advertise yourself!</p>
+
+    <h2>Selfie listing</h2>
+    <div class="ui two column grid">
+        {{#each selfies}}
+            {{> selfie}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="selfie">
+    <div class="column">
+        <p>{{title}}</p>
+    </div>
+    <div class="column">
+        <img src="{{data}}"/>
+    </div>
+</template>

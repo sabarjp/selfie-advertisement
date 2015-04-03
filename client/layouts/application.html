@@ -1,0 +1,20 @@
+<template name="applicationLayout">
+    <head>
+        <title>{{title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        {{> sidebar}}
+        {{> nav}}
+        {{> spinner}}
+    
+        <div class="pusher">
+            {{> yield }}
+
+            <footer>
+                {{> yield "footer"}}
+            </footer>
+        </div>
+    </body>
+</template>

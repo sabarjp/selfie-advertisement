@@ -1,0 +1,31 @@
+<template name="home">
+    <h1>Selfie Advertisement</h1>
+
+    <p>Take a selfie. Advertise yourself.</p>
+
+    {{#if currentUser}}
+        {{> selfieUpload}}
+    {{/if}}
+</template>
+
+<template name="selfieUpload">
+    <h3>Upload your selfie!</h3>
+
+    {{> validationErrors collectionName="selfies" errorMessage="There was a problem creating your selfie."}}
+
+    <form class="ui form attached fluid segment" id="selfie-upload-form" action="action">
+        <div class="field">
+            <input type="file" id="selfie-file" accept="image/*" capture>
+
+            {{#if addSelfieError}}
+                {{addSelfieError}}
+            {{/if}}
+        </div>
+
+        <div class="field">
+            <input type="submit" class="ui button" value="Upload">
+        </div>
+
+        <img id="selfie-preview" src="" style="display:none;" alt="Image upload preview">
+    </form>
+</template>

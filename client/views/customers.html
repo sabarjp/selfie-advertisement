@@ -1,0 +1,127 @@
+<template name="customersMain">
+    <h1>Customers</h1>
+
+    {{#if isCustomerBeingAdded}}
+        {{> customerAddForm}}
+    {{else}}
+        <button id="customer-add-button" class="ui primary button">Add customer</button>
+    {{/if}}
+
+    <h2>Customer listing</h2>
+    <div class="ui two column grid">
+        {{#each customers}}
+            {{> customer}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="customer">
+    <div class="column">{{firstName}} {{lastName}}</div>
+    <div class="column">
+        <button class="customer-modify ui icon button">
+            <i class="wrench icon"></i> Modify
+        </button>
+
+        <div class="customer-modify-group ui buttons" style="display:none;">
+            <button class="customer-edit ui icon blue button">
+                <i class="edit icon"></i>
+            </button>
+            <button class="customer-delete ui icon yellow button">
+                <i class="trash icon"></i>
+            </button>
+            <button class="customer-cancel-modify ui icon button">
+                <i class="remove icon"></i> Cancel
+            </button>
+        </div>
+
+        <div class="customer-confirm-delete-group ui buttons" style="display:none;">
+            <button class="customer-confirm-delete ui icon red button">
+                <i class="trash icon"></i>
+            </button>
+            <div class="or"></div>
+            <button class="customer-cancel-delete ui icon button">
+                <i class="remove icon"></i> Cancel
+            </button>
+        </div>
+    </div>
+</template>
+
+<template name="customerAddForm">
+    <h2>Add new customer</h2>
+
+    {{> validationErrors collectionName="customers" errorMessage="There was a problem creating the new customer."}}
+
+    <form class="ui form" id="customer-add-form" action="action">
+        <div class="field">
+            <label for="first-name">*First name</label>
+            <input type="text" id="first-name" name="firstName" placeholder="First name"/>
+        </div>
+
+        <div class="field">
+            <label for="last-name">*Last name</label>
+            <input type="text" id="last-name" name="lastName" placeholder="Last name"/>
+        </div>
+
+        <div class="field">
+            <label for="suffix">Suffix</label>
+            <input type="text" id="suffix" name="suffix" placeholder="Suffix"/>
+        </div>
+
+        <h3>Mailing address</h3>
+        <div class="field">
+            <label for="country">Country</label>
+            {{> countrySelect}}
+        </div>
+
+        <div class="field">
+            <label for="street-address">Street address</label>
+            <input type="text" id="street-address" name="streetAddress" placeholder="Street address"/>
+        </div>
+
+        <div class="field">
+            <label for="apartment-number">Apartment number</label>
+            <input type="text" id="apartment-number" name="apartmentNumber" placeholder="Apt. #"/>
+        </div>
+
+        <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="City"/>
+        </div>
+
+        <div class="field">
+            <label for="state">State</label>
+            {{> stateSelect}}
+        </div>
+
+        <div class="field">
+            <label for="zip-code">Zip code</label>
+            <input type="text" id="zip-code" name="zipCode" placeholder="Zip code"/>
+        </div>
+
+        <h3>Contact info</h3>
+        <div class="field">
+            <label for="phone-number">Phone number</label>
+            <input type="text" id="phone-number" name="phoneNumber" placeholder="Phone number"/>
+        </div>
+
+        <div class="field">
+            <label for="e-mail">E-mail</label>
+            <input type="text" id="e-mail" name="email" placeholder="E-mail address"/>
+        </div>
+
+        <div class="field">
+            <label for="web-address">Web address</label>
+            <input type="text" id="web-address" name="webAddress" placeholder="Web address"/>
+        </div>
+
+        <div class="field">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" placeholder="Notes about this customer"></textarea>
+        </div>
+
+        <div class="field">
+            <input type="submit" id="submit-button" class="ui primary button" value="Add" />
+            <button id="cancel-button" class="ui secondary button">Cancel</button>
+        </div>
+    </form>
+</template>
