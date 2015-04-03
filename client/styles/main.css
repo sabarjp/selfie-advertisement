@@ -1,5 +1,16 @@
 /* CSS declarations go here */
 
+@media only screen and (max-width: @computerBreakpoint) {
+    html.ios {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.launch.item{
+    cursor: pointer;
+}
+
 .header{
     padding-top: 60px;
 }
